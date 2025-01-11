@@ -28,6 +28,18 @@
     object-fit: cover;
   }
 
+  .mySlides .eslogan {
+    position: absolute; 
+    top: 30px;
+    left: 35px; 
+    text-align: left; 
+    color: aliceblue;
+    width: 400px;
+    font-size: 33px;
+    font-family: Impact, fantasy;
+    font-style: italic;
+  }
+  
   .no-hover:hover {
     background-color: transparent !important;
   }
@@ -149,18 +161,43 @@
   .card:hover .title {
     opacity: 0;
   }
+
+  @media (max-width: 768px) {
+    .mySlides {
+      height: 75%; 
+    }
+
+    .mySlides img {
+      width: fit-content; 
+      height: 75%;
+      object-fit: cover;
+    }
+
+    .mySlides .eslogan {
+      width: 180px;
+      font-size: 16px;
+    }
+
+    .mision-vision-contenedor {
+      flex-direction: column;
+    }
   
-  .mySlides .eslogan {
-    position: absolute; 
-    top: 30px;
-    left: 35px; 
-    text-align: left; 
-    color: aliceblue;
-    width: 400px;
-    font-size: 33px;
-    font-family: Impact, fantasy;
-    font-style: italic;
+    .mision-vision-contenedor img {
+      order: 1;
+      margin: 10px 0;
+    }
+    
+    .grid {
+      grid-template-columns: 1fr;
+      padding: 15px;
+      gap: 30px;
+    }
+  
+    .card {
+      padding-top: 40%;
+    }
   }
+  
 </style>
 
 </head>
@@ -175,7 +212,6 @@
       <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/LOGO.png?raw=true" alt="Logo" style="height: 40px; vertical-align: middle;">
     </a>
     <!-- Opciones de navegación -->
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">INICIO</a>
     <!-- Dropdown para "SOBRE NOSOTROS" -->
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="Sobre Nosotros">SOBRE NOSOTROS <i class="fa fa-caret-down"></i></button>
@@ -193,8 +229,8 @@
 <!-- Navbar para pantallas pequeñas -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
   <a href="#us" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MISIÓN</a>
-  <a href="#vision" class="w3-bar-item w3-button">VISIÓN</a>
-  <a href="#valores" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NUESTROS VALORES</a>
+  <a href="#vision" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">VISIÓN</a>
+  <a href="#valores" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">NUESTROS VALORES</a>
   <a href="#services" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">NUESTROS SERVICIOS</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACTO</a>
 </div>
@@ -230,7 +266,7 @@
 
   <!-- About us -->
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1200px" id="us">
-    <h2 class="w3-wide" style="font-family: fantasy;">Sobre Nosotros</h2>
+    <h2 class="w3-wide" style="font-family: Impact, fantasy;">Sobre Nosotros</h2>
     <div class="mision-vision-contenedor" id="vision">
       <div class="texto">
       <h3>Misión</h3>
@@ -258,8 +294,7 @@
 
       <div class="w3-black">
       <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1200px" id="valores">
-        <h2 class="w3-wide" style="font-family: fantasy;">Nuestros Valores</h2>
-        <p>Nuestros valores fundamentales guían cada decisión y acción, definiendo quiénes somos y cómo operamos:</p>        
+        <h2 class="w3-wide" style="font-family: Impact, fantasy;">Nuestros Valores</h2>       
           <div class="grid">
             <!-- Tarjeta 1 -->
             <div class="card">
@@ -330,7 +365,7 @@
   <!-- Our services -->
   <div class="w3-white" id="services">
     <div class="w3-container w3-content w3-padding-64" style="max-width:1200px">
-      <h2 class="w3-wide w3-center" style="font-family: fantasy;">Nuestro Servicios</h2>
+      <h2 class="w3-wide w3-center" style="font-family: Impact, fantasy;">Nuestros Servicios</h2>
       <p class="w3-opacity w3-center"><i>Contactese con nuestro equipo para más información</i></p><br>
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -5px">
