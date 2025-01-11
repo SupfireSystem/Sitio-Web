@@ -12,20 +12,20 @@
     font-family: "Lato", sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Evita cualquier desplazamiento horizontal */
+    overflow-x: hidden;
   }
 
   .mySlides {
-    display: none; /* Mantiene las diapositivas ocultas inicialmente */
+    display: none; 
     position: relative;
-    height: 100vh; /* Asegura que cada diapositiva ocupe toda la ventana */
-    overflow: hidden; /* Esconde cualquier contenido que sobrepase */
+    height: 100vh; 
+    overflow: hidden;
   }
 
   .mySlides img {
-    width: 100%; /* Ajusta el ancho al contenedor */
-    height: 100vh; /* Ajusta la altura al 100% del viewport */
-    object-fit: cover; /* Escala la imagen para llenar el contenedor sin distorsión */
+    width: 100%; 
+    height: 100vh;
+    object-fit: cover;
   }
 
   .no-hover:hover {
@@ -35,13 +35,131 @@
 
   .w3-display-bottommiddle {
     position: absolute;
-    bottom: 5%; /* Coloca el texto cerca del fondo */
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    color: white; /* Asegura que el texto sea visible */
-    font-size: 1.5em; /* Ajusta el tamaño de la fuente */
-    padding: 0; /* Elimina cualquier relleno innecesario */
+    color: white; 
+    font-size: 1.5em; 
+    padding: 0; 
+  }
+
+  .mision-vision-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .mision-vision-contenedor .texto {
+    flex: 2;
+  }
+  
+  .mision-vision-contenedor .imagen {
+    flex: 1;
+    
+  }
+  
+  .mision-vision-contenedor img {
+    max-width: 80%; /* Ajusta el tamaño de la imagen */
+    border-radius: 20px;
+    height: auto;
+  }
+  
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  }
+
+  /* Tarjetas */
+  .card {
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+    background-color: #e9c070;
+    border: 1px solid #444;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .card:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+  }
+
+  /* Contenido de la tarjeta */
+  .card-content {
+    position: absolute;
+    top: 0%;
+    left: -1;
+    width: 145%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .title img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .title p {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color:black;
+    font-family: serif;
+  }
+  
+  /* Texto al pasar el mouse */
+  .hover-text {
+    color:rgb(0, 0, 0);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+    padding: 0px;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .card:hover .hover-text {
+    opacity: 1;
+  }
+  
+  .card:hover .title {
+    opacity: 0;
+  }
+  
+  .mySlides .eslogan {
+    position: absolute; 
+    top: 30px;
+    left: 35px; 
+    text-align: left; 
+    color: aliceblue;
+    width: 400px;
+    font-size: 33px;
+    font-family: Impact, fantasy;
+    font-style: italic;
   }
 </style>
 
@@ -51,6 +169,7 @@
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <!-- Logo -->
     <a href="#" class="w3-bar-item w3-button no-hover w3-padding-large">
       <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/LOGO.png?raw=true" alt="Logo" style="height: 40px; vertical-align: middle;">
@@ -61,155 +180,214 @@
     <div class="w3-dropdown-hover w3-hide-small">
       <button class="w3-padding-large w3-button" title="Sobre Nosotros">SOBRE NOSOTROS <i class="fa fa-caret-down"></i></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#us" class="w3-bar-item w3-button">Misión</a>
-        <a href="#vision" class="w3-bar-item w3-button">Visión</a>
+        <a href="#us" class="w3-bar-item w3-button">MISIÓN</a>
+        <a href="#vision" class="w3-bar-item w3-button">VISIÓN</a>
       </div>
     </div>
+    <a href="#valores" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NUESTROS VALORES</a>
     <a href="#services" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NUESTROS SERVICIOS</a>
     <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACTO</a>
-    <!-- Dropdown para "MORE" -->
-    <div class="w3-dropdown-hover w3-hide-small">
-      <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="#" class="w3-bar-item w3-button">More</a>
-      </div>
-    </div>
   </div>
 </div>
 
 <!-- Navbar para pantallas pequeñas -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#us" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SOBRE NOSOTROS</a>
+  <a href="#us" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MISIÓN</a>
+  <a href="#vision" class="w3-bar-item w3-button">VISIÓN</a>
+  <a href="#valores" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NUESTROS VALORES</a>
   <a href="#services" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">NUESTROS SERVICIOS</a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">CONTACTO</a>
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">OTRO</a>
 </div>
 
-
-
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<div class="w3-content" style="max-width:100%;margin-top:46px">
 
-   <div class="mySlides w3-display-container w3-center">
-    <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/xllogo.png?raw=true" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">  
-    </div>
-  </div>
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
+    <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/xllogo.png?raw=true" style="width:100%">
+  </div>
+
+  <div class="mySlides w3-display-container w3-center">
     <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/foto1.png?raw=true" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <p><b>CONFÍA EN NOSOTROS, PROTEGE TU VIDA</b></p>   
+    <div class="eslogan">
+      <p>CONFÍA EN NOSOTROS, PROTEGE TU VIDA</p>   
     </div>
   </div>
+
   <div class="mySlides w3-display-container w3-center">
     <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/foto2.png?raw=true" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <p><b>PARA CUALQUIER VEHÍCULO</b></p>    
+    <div class="eslogan">
+      <p>PARA CUALQUIER VEHÍCULO</p>    
     </div>
   </div>
   <div class="mySlides w3-display-container w3-center">
     <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/foto3.png?raw=true" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <P><b>LA INNOVACIÓN EN SEGURIDAD AUTOMOTRIZ ESTÁ AQUÍ</b></P>    
+    <div class="eslogan">
+      <P>LA INNOVACIÓN EN SEGURIDAD AUTOMOTRIZ ESTÁ AQUÍ</P>    
     </div>
   </div>
   
 
   <!-- About us -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="us">
-    <h2 class="w3-wide">Sobre Nosotros</h2>
-
-    <div id="vision">
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1200px" id="us">
+    <h2 class="w3-wide" style="font-family: fantasy;">Sobre Nosotros</h2>
+    <div class="mision-vision-contenedor" id="vision">
+      <div class="texto">
       <h3>Misión</h3>
-      <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="w3-justify">Proteger vidas y bienes a través de la creación de sistemas innovadores diseñados 
+        específicamente para prevenir incendios en accidentes vehiculares. Nuestro compromiso es ofrecer soluciones 
+        tecnológicas avanzadas que no solo minimicen los riesgos asociados con incendios automotrices, sino que 
+        también establezcan un nuevo estándar en la industria de seguridad vehicular. Cada uno de nuestros sistemas 
+        está desarrollado con un enfoque en la confiabilidad, eficiencia y respeto al medio ambiente, asegurando la 
+        tranquilidad de nuestros clientes y la protección de su entorno.</p>
       
       <h3>Visión</h3>
-      <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    </div>
+      <p class="w3-justify">Ser reconocidos como líderes globales en la industria de sistemas contra amagos de incendios 
+        automotrices, marcando el rumbo hacia un futuro más seguro y sostenible. Imaginamos un mundo donde la innovación 
+        tecnológica se alinee con la responsabilidad ambiental para prevenir pérdidas humanas y materiales. Aspiramos a 
+        construir una marca que inspire confianza y establezca relaciones duraderas con clientes y comunidades, basándonos 
+        en nuestra capacidad de transformar desafíos en oportunidades para un mundo más seguro.</p>
+      </div>
 
+      <div class="imagen">
+        <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/happy.png?raw=true">
+      </div>
+    </div>
+  </div>
+
+
+      <div class="w3-black">
+      <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1200px" id="valores">
+        <h2 class="w3-wide" style="font-family: fantasy;">Nuestros Valores</h2>
+        <p>Nuestros valores fundamentales guían cada decisión y acción, definiendo quiénes somos y cómo operamos:</p>        
+          <div class="grid">
+            <!-- Tarjeta 1 -->
+            <div class="card">
+              <div class="card-content">
+                <p class="hover-text">Promovemos prácticas responsables que no solo reducen nuestra huella ambiental, sino que también generan valor para las generaciones futuras.</p>
+                <div class="title">
+                  <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/icono-sustentabilidad.png?raw=true" alt="Icono Sustentabilidad">
+                  <p>Sustentabilidad</p>
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta 2 -->
+            <div class="card">
+              <div class="card-content">
+                <p class="hover-text">Garantizamos productos y servicios de alta calidad que cumplen con los más estrictos estándares, asegurando resultados consistentes y efectivos.</p>
+                <div class="title">
+                  <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/icono-fiabilidad.png?raw=true" alt="Icono Fiabilidad">
+                  <p>Fiabilidad</p>
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta 3 -->
+            <div class="card">
+              <div class="card-content">
+                <p class="hover-text">Estamos comprometidos con la búsqueda constante de nuevas ideas y tecnologías que mejoren la 
+                  seguridad y eficiencia de nuestros sistemas, anticipándonos a las necesidades del mercado.</p>
+                <div class="title">
+                  <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/icono-innovacion.png?raw=true" alt="Icono Innovación">
+                  <p>Innovación</p>
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta 4 -->
+            <div class="card">
+              <div class="card-content">
+                <p class="hover-text">Actuamos con integridad, ética y transparencia, conscientes del impacto de nuestras acciones en las personas y el planeta.</p>
+                <div class="title">
+                  <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/icono-responsabilidad.png?raw=true" alt="Icono Responsabilidad">
+                  <p>Responsabilidad</p>
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta 5 -->
+            <div class="card">
+              <div class="card-content">
+                <p class="hover-text">Trabajamos con dedicación y pasión, priorizando siempre la satisfacción y confianza de nuestros clientes y socios estratégicos.</p>
+                <div class="title">
+                  <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/icono-compromiso.png?raw=true" alt="Icono Compromiso">
+                  <p>Compromiso</p>
+                </div>
+              </div>
+            </div>
+            <!-- Tarjeta 6 -->
+            <div class="card">
+              <div class="card-content">
+                <p class="hover-text"> La protección de vidas humanas y la preservación de bienes materiales son el núcleo de nuestra misión. 
+                  Diseñamos cada solución pensando en mitigar riesgos y salvaguardar el bienestar de las personas.</p>
+                <div class="title">
+                  <img src="https://github.com/SupfireSystem/Sitio-Web/blob/main/images/icono-seguridad.png?raw=true" alt="Icono Seguridad">
+                  <p>Seguridad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
   </div>
 
   <!-- Our services -->
-  <div class="w3-black" id="services">
+  <div class="w3-white" id="services">
     <div class="w3-container w3-content w3-padding-64" style="max-width:1200px">
-      <h2 class="w3-wide w3-center">Nuestro Servicios</h2>
+      <h2 class="w3-wide w3-center" style="font-family: fantasy;">Nuestro Servicios</h2>
       <p class="w3-opacity w3-center"><i>Contactese con nuestro equipo para más información</i></p><br>
 
-      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+      <div class="w3-row-padding w3-padding-32" style="margin:0 -5px">
         <div class="w3-third w3-margin-bottom">
           <!--<img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">-->
-          <div class="w3-container w3-white">
-            <p><b>Instalación</b></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
+          <div class="w3-container w3-black">
+            <p><b>Cumplimiento normativo</b></p>
+            <p class="w3-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
               industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
               scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
               electronic typesetting, remaining essentially unchanged.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
+            <button class="w3-button w3-white w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
           <!--<img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">-->
-          <div class="w3-container w3-white">
+          <div class="w3-container w3-black">
             <p><b>Mantenimiento</b></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
-              electronic typesetting, remaining essentially unchanged.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
+            <p class="w3-justify">Sabemos  que la seguridad en la carretera es primordial. Por ello, ofrecemos servicios 
+              completos de mantenimiento para nuestros sistemas contra incendios diseñados específicamente 
+              para vehículos. Nuestro equipo de expertos está comprometido a garantizar que tu equipo esté 
+              siempre en óptimas condiciones, realizando revisiones 1 vez al mes y servicios de mantenimiento 
+            preventivo que aseguran su funcionamiento confiable y eficaz.</p>
+            <button class="w3-button w3-white w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
           <!--<img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">-->
-          <div class="w3-container w3-white">
+          <div class="w3-container w3-black">
             <p><b>Asesorías</b></p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
-              electronic typesetting, remaining essentially unchanged.</p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
+            <p class="w3-justify">En SUP FIRE SYSTEM, nos especializamos en brindarte una asesoría personalizada y de calidad para 
+              la instalación de nuestros sistemas. Nuestro equipo de profesionales altamente capacitados está 
+              enfocado en ayudarte a comprender el funcionamiento de nuestras tecnologías, ofreciéndote confianza 
+              y tranquilidad. Nos comprometemos a proporcionarte toda la información y el respaldo necesarios para 
+              garantizar la máxima seguridad en tu vehículo.</p>
+            <button class="w3-button w3-white w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Ticket Modal -->
-  <div id="ticketModal" class="w3-modal">
-    <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal w3-center w3-padding-32"> 
-        <span onclick="document.getElementById('ticketModal').style.display='none'" 
-       class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
-        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
-      </header>
-      <div class="w3-container">
-        <p><label><i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="How many?">
-        <p><label><i class="fa fa-user"></i> Send To</label></p>
-        <input class="w3-input w3-border" type="text" placeholder="Enter email">
-        <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check"></i></button>
-        <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close <i class="fa fa-remove"></i></button>
-        <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
-      </div>
-    </div>
-  </div>
 
   <!-- The Contact Section -->
+ <div class="w3-black">
   <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-    <h2 class="w3-wide w3-center">CONTACTO</h2>
+    <h2 class="w3-wide w3-center" style="font-family: fantasy;">CONTACTO</h2>
     <div class="w3-row w3-padding-32">
       <div class="w3-col m6 w3-large w3-margin-bottom">
         <i class="fa fa-phone" style="width:30px"></i> +569 XXXXXXXX<br>
         <i class="fa fa-envelope" style="width:30px"> </i> Ssupfiresystem@gmail.com<br>
-        <i class="fa fa-instagram" style="width:30px"></i> <a href="https://www.instagram.com/tuusuario" target="_blank">Supfire_system</a><br>
+        <i class="fa fa-instagram" style="width:30px"></i> <a href="https://www.instagram.com/supf.iresystem2025?igsh=MXBpZzl4MjB3cGF1&utm_source=qr" target="_blank">Supfire_system</a><br>
 
 
       </div>
       <div class="w3-col m6">
-        <form action="/action_page.php" target="_blank">
+        <form  target="_blank">
           <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
             <div class="w3-half">
               <input class="w3-input w3-border" type="text" placeholder="Nombre" required name="Name">
@@ -224,6 +402,7 @@
       </div>
     </div>
   </div>
+</div>
   
 <!-- End Page Content -->
 </div>
@@ -255,13 +434,6 @@ function myFunction() {
   }
 }
 
-// When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 </script>
 
 </body>
