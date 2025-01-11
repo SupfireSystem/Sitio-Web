@@ -174,8 +174,9 @@
     }
 
     .mySlides .eslogan {
-      width: 180px;
-      font-size: 16px;
+      left: 25px; 
+      width: 130px;
+      font-size: 14px;
     }
 
     .mision-vision-contenedor {
@@ -195,6 +196,24 @@
   
     .card {
       padding-top: 55%;
+    }
+
+    .card .hover-text {
+      opacity: 0;
+      position: absolute;
+      transition: opacity 0.4s ease;
+    }
+  
+    .card.active .hover-text {
+      opacity: 1;
+    }
+
+    .card .title {
+      opacity: 1;
+    }
+  
+    .card.active .title {
+      opacity: 0;
     }
   }
   
@@ -370,34 +389,41 @@
 
       <div class="w3-row-padding w3-padding-32" style="margin:0 -5px">
         <div class="w3-third w3-margin-bottom">
-          <!--<img src="/w3images/newyork.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">-->
           <div class="w3-container w3-black">
             <p><b>Cumplimiento normativo</b></p>
-            <p class="w3-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
-              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into 
-              electronic typesetting, remaining essentially unchanged.</p>
+            <p class="w3-justify">Nuestra empresa se compromete con la seguridad y calidad de nuestros productos y servicios. 
+              Contamos con certificación en:
+              <ul>
+                <li> Conformidad con la Norma Chilena NCh 2243-2014.</li>
+                <li> Inspección por un organismo acreditado por el Instituto Nacional de Normalización (INN).</li>
+                <li> Cumplimiento de la norma DS 44 sobre extintores de incendios.</li>
+                <li> ISO 9001: Sistema de Gestión de Calidad.</li>
+                <li> ISO 14001: Sistema de Gestión Ambiental.</li>
+              </ul> 
+            </p>
             <button class="w3-button w3-white w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
-          <!--<img src="/w3images/paris.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">-->
-          <div class="w3-container w3-black">
+          <div class="w3-container w3-black" style="height: 385px;">
             <p><b>Mantenimiento</b></p>
             <p class="w3-justify">Sabemos  que la seguridad en la carretera es primordial. Por ello, ofrecemos servicios 
               completos de mantenimiento para nuestros sistemas contra incendios diseñados específicamente 
-              para vehículos. Nuestro equipo de expertos está comprometido a garantizar que tu equipo esté 
+              para vehículos. 
+              <br> <br>
+              Nuestro equipo de expertos está comprometido a garantizar que tu equipo esté 
               siempre en óptimas condiciones, realizando revisiones 1 vez al mes y servicios de mantenimiento 
             preventivo que aseguran su funcionamiento confiable y eficaz.</p>
             <button class="w3-button w3-white w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Más información</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
-          <!--<img src="/w3images/sanfran.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">-->
-          <div class="w3-container w3-black">
+          <div class="w3-container w3-black" style="height: 385px;">
             <p><b>Asesorías</b></p>
             <p class="w3-justify">En SUP FIRE SYSTEM, nos especializamos en brindarte una asesoría personalizada y de calidad para 
-              la instalación de nuestros sistemas. Nuestro equipo de profesionales altamente capacitados está 
+              la instalación de nuestros sistemas. 
+              <br> <br>
+              Nuestro equipo de profesionales altamente capacitados está 
               enfocado en ayudarte a comprender el funcionamiento de nuestras tecnologías, ofreciéndote confianza 
               y tranquilidad. Nos comprometemos a proporcionarte toda la información y el respaldo necesarios para 
               garantizar la máxima seguridad en tu vehículo.</p>
@@ -415,9 +441,9 @@
     <h2 class="w3-wide w3-center" style="font-family: Impact, fantasy;">CONTACTO</h2>
     <div class="w3-row w3-padding-32">
       <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-phone" style="width:30px"></i> +569 XXXXXXXX<br>
+        <i class="fa fa-phone" style="width:30px"></i> +569 75219007<br>
         <i class="fa fa-envelope" style="width:30px"> </i> Ssupfiresystem@gmail.com<br>
-        <i class="fa fa-instagram" style="width:30px"></i> <a href="https://www.instagram.com/supf.iresystem2025?igsh=MXBpZzl4MjB3cGF1&utm_source=qr" target="_blank">Supfire_system</a><br>
+        <i class="fa fa-instagram" style="width:30px"></i> Supfire_system<br>
 
 
       </div>
@@ -468,8 +494,20 @@ function myFunction() {
     x.className = x.className.replace(" w3-show", "");
   }
 }
+  
+document.addEventListener("DOMContentLoaded", function () {
+  // Seleccionamos todas las tarjetas
+  const cards = document.querySelectorAll(".card");
+
+  // Agregamos el evento de clic a cada tarjeta
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // Alternar la clase 'active' en la tarjeta seleccionada
+      card.classList.toggle("active");
+    });
+  });
+});
 
 </script>
-
 </body>
 </html>
